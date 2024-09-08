@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import { Menu, Button, Drawer, Input } from "antd";
+import { Menu, Button, Drawer, Input, Dropdown } from "antd";
 import { MenuOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
 import searchIcon from "../../assets/icons/searchIcon.svg";
@@ -13,7 +13,7 @@ const items = [
     key: "home",
   },
   {
-    label: ( 
+    label: (
       <Link to="/" className="flex justify-center items-center gap-2 text-white">
         Courses <img src={downArrow} alt="downarrow" className="mt-[2px]" />
       </Link>
@@ -26,7 +26,7 @@ const items = [
   },
   {
     label: (
-      <Link to="/welcome" className="flex justify-center items-center gap-2  text-white">
+      <Link to="/" className="flex justify-center items-center gap-2  text-white">
         About <img src={downArrow} alt="downarrow" className="mt-[2px]" />
       </Link>
     ),
@@ -41,9 +41,16 @@ const items = [
     key: "investors",
   },
 ];
-
+const langMenu = (
+  <Menu>
+    <Menu.Item key="1">English</Menu.Item>
+    <Menu.Item key="2">Spanish</Menu.Item>
+    <Menu.Item key="3">French</Menu.Item>
+  </Menu>
+);
 export default function Header() {
   const [current, setCurrent] = useState("home");
+  const [visible, setVisible] = useState(false);
 
   const [state, setState] = useState({
     visible: false,
@@ -60,11 +67,14 @@ export default function Header() {
   const onClick = (e) => {
     setCurrent(e.key); // Update current state to highlight active item
   };
-
+  const handleMenuClick = (e) => {
+    console.log('Menu item clicked:', e);
+    setVisible(false);
+  };
   return (
     <>
-      <div className="w-full bg-[#24272A] py-9">
-        <div className="flex justify-between items-center gap-2 max-w-[1272px] w-full text-sm text-white font-bold mx-auto">
+      <div className="w-full bg-[#24272A] lg:py-9 py-4 coursesHeader">
+        <div className="flex justify-between items-center gap-2 max-w-[1272px] 2xl:px-0 px-5 w-full text-sm text-white font-bold mx-auto">
           <div className="main_menu w-1/2 flex justify-between">
             <Menu
               onClick={onClick}
@@ -83,7 +93,7 @@ export default function Header() {
               prefix={
                 <img src={searchIcon} alt="Search Icon" className="w-5 h-5" />
               }
-              className="w-[185px] rounded-full"
+              className="min-w-[185px] w-[185px] h-[39px] rounded-full"
             />
           </div>
           <div className="flex gap-4 items-center ">
@@ -100,27 +110,41 @@ export default function Header() {
                 Register or Log In
               </Button>
               <p className="flex items-center gap-1">
-                En <img src={downArrow} alt="down arrow" />
+                <button
+                  onClick={() => setVisible(!visible)}
+                  className="flex items-center gap-1 cursor-pointer p-2"
+                >
+                  En <img src={downArrow} alt="down arrow" />
+                </button>
+                {visible && (
+                  <div className="absolute right-0  top-20 mt-2 bg-white border rounded shadow-lg">
+                    <Menu
+                      onClick={handleMenuClick}
+                      items={[
+                        { label: 'English', key: '1' },
+                        { label: 'Spanish', key: '2' },
+                        { label: 'French', key: '3' },
+                      ]}
+                    />
+                  </div>
+                )}
               </p>
             </div>
             <>
               <Button
                 className="menubtn"
-                type="primary"
                 shape="circle"
                 icon={<MenuOutlined />}
                 onClick={showDrawer}
+                classNames="bg-[#FF6B00]"
               />
-              <Drawer placement="right" onClose={onClose} open={state.visible}>
+              <Drawer placement="right" onClose={onClose} open={state.visible} className="!bg-[#FF6B00]">
                 <div className="mobile_menu flex flex-col">
-                  <Button type="text" href="/">
-                    Home
-                  </Button>
-                  <Button type="text">Courses</Button>
-                  <Button type="text">About</Button>
-                  <Button type="text" href="/success_stories">
-                    For Investors
-                  </Button>
+                  <Menu
+                    mode="inline"
+                    theme="[#24272A]"
+                    items={items}
+                  />
                 </div>
               </Drawer>
             </>

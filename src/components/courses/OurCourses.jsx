@@ -41,7 +41,7 @@ const coursesData = [
 
 const OurCourses = () => {
   return (
-    <div className="max-w-[1272px] w-full md:py-[9.554rem] py-5 mx-auto">
+    <div className="max-w-[1272px] 2xl:px-0 px-5 w-full md:py-[9.554rem] py-5 mx-auto">
       <h1 className="text-2xl font-bold text-center pb-5">Our Courses</h1>
       <div className="grid gap-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-1">
         {coursesData?.map((courseData) => {

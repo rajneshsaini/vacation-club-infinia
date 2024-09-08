@@ -8,22 +8,40 @@
   font-weight: normal;
   font-style: normal;
 }
+
 .main_menu .bigmenu {
   justify-content: center;
   border: none;
 }
+
 /* .main_menu .bigmenu li a {
   color: #fff;
 } */
 .main_menu .bigmenu li a:hover {
   color: #ff6b00;
 }
-.ant-menu-submenu::after,.ant-menu-item::after {
- display: none !important;
-}
-.ant-menu-item-selected a::after{
-content: '';
 
+.ant-menu-submenu::after,
+.ant-menu-item::after {
+  display: none !important;
+}
+
+.ant-menu-item-selected {
+  position: relative;
+}
+
+.welcomeHeader span.anticon.anticon-close {
+  filter: invert(100%) brightness(100%) !important;
+}
+.coursesHeader .ant-menu-item-selected a::after {
+  content: '';
+  background-image: url(http://localhost:3000/static/media/menuBottomLine.598be0eef2a03ec80192.svg);
+  width: 10px;
+  height: 2px;
+  position: absolute;
+  margin: auto;
+  bottom: 9px;
+  left: 46%;
 }
 
 .go-corner {
@@ -68,41 +86,61 @@ content: '';
     transform: scale(21);
   }
 }
+
 @media (min-width: 769px) {
   .menubtn {
     margin-top: 20px;
     display: none;
   }
 }
+
 @media (max-width: 769px) {
   .bigmenu {
     margin-top: 10px;
     display: none;
   }
+
   .hide {
     display: none !important;
   }
+
   .menubtn {
     color: #000;
     /* background-color:#ECAB34; */
     border: none;
     box-shadow: none;
   }
+  span.ant-menu-title-content img {
+    filter: grayscale(100%) invert(100%);
+}
   .main_menu {
     width: 60%;
     display: none;
   }
+
   .t-hide {
     display: none;
   }
+
   .mobile_menu a {
     font-weight: bold;
+    justify-content: space-between;
   }
-  :where(.css-dev-only-do-not-override-dfjnss).ant-drawer
-    .ant-drawer-header-title {
+
+  i.ant-menu-submenu-arrow {
+    display: none;
+  }
+
+  .coursesHeader .ant-menu-title-content a {
+    color: #24272A;
+  }
+
+  .ant-drawer .ant-drawer-header-title {
     flex-direction: row-reverse;
   }
-  :where(.css-dev-only-do-not-override-dfjnss).ant-drawer .ant-drawer-close {
+
+  .ant-drawer .ant-drawer-close {
     margin-inline-end: 0px;
   }
+
 }

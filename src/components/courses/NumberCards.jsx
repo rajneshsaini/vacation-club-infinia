@@ -40,8 +40,8 @@ const NumberData = [
 ];
 const NumberCards = () => {
   return (
-    <div className="max-w-[1027px] w-full pb-[88px] mx-auto">
-      <div className="grid gap-[50px] lg:grid-cols-3 md:grid-cols-2 grid-cols-1 p-[14px]">
+    <div className="max-w-[1027px] 2xl:px-0 px-5 w-full pb-[88px] mx-auto">
+      <div className="grid lg:gap-[50px] gap-5 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 p-[14px]">
         {NumberData?.map((data) => {
           return <NumberComp {...data} key={data?.id} />;
         })}
