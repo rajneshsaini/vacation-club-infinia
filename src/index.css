@@ -1,0 +1,103 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Fugi";
+  src: url("./assets/fonts/Fugi.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+.main_menu .bigmenu {
+    justify-content: center;
+    border: none;
+  }
+  .main_menu .bigmenu li a {
+    color: #fff;
+  }
+  .main_menu .bigmenu li a:hover {
+    color: #FF6B00;
+  }
+.go-corner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  overflow: hidden;
+  bottom: 9;
+  right: 0;
+  /* background-color: #00838d;  */
+  border-radius: 0 4px 0 32px;
+}
+
+
+.hover-animation {
+  display: block;
+  position: relative;
+  background-color: #f2f8f9;
+  border-radius: 4px;
+  text-decoration: none;
+  z-index: 0;
+  overflow: hidden;
+
+  &:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    bottom: -30px;
+    right: -16px;
+    background: #D2EA8E;
+    height: 32px;
+    width: 32px;
+    border-radius: 32px;
+    transform: scale(1);
+    transform-origin: 50% 50%;
+    transition: transform 0.25s ease-out;
+  }
+
+  &:hover:before {
+    transform: scale(21);
+  }
+}
+@media (min-width: 769px) {
+    .menubtn {
+      margin-top: 20px;
+      display: none;
+    }
+
+  }
+  @media (max-width: 769px) {
+    .bigmenu {
+      margin-top: 10px;
+      display: none;
+    }
+    .hide{
+        display: none !important;
+    }
+    .menubtn {
+      color: #000;
+      /* background-color:#ECAB34; */
+      border: none;
+      box-shadow: none;
+    }
+    .main_menu {
+      width: 60%;
+      display: none;
+    }
+    .t-hide {
+      display: none;
+    }
+    .mobile_menu a {
+      font-weight: bold;
+    }
+    :where(.css-dev-only-do-not-override-dfjnss).ant-drawer
+      .ant-drawer-header-title {
+      flex-direction: row-reverse;
+    }
+    :where(.css-dev-only-do-not-override-dfjnss).ant-drawer .ant-drawer-close {
+      margin-inline-end: 0px;
+    }
+ 
+  }
