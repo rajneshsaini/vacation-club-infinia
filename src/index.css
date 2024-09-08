@@ -9,15 +9,23 @@
   font-style: normal;
 }
 .main_menu .bigmenu {
-    justify-content: center;
-    border: none;
-  }
-  .main_menu .bigmenu li a {
-    color: #fff;
-  }
-  .main_menu .bigmenu li a:hover {
-    color: #FF6B00;
-  }
+  justify-content: center;
+  border: none;
+}
+/* .main_menu .bigmenu li a {
+  color: #fff;
+} */
+.main_menu .bigmenu li a:hover {
+  color: #ff6b00;
+}
+.ant-menu-submenu::after,.ant-menu-item::after {
+ display: none !important;
+}
+.ant-menu-item-selected a::after{
+content: '';
+
+}
+
 .go-corner {
   display: flex;
   align-items: center;
@@ -31,7 +39,6 @@
   /* background-color: #00838d;  */
   border-radius: 0 4px 0 32px;
 }
-
 
 .hover-animation {
   display: block;
@@ -48,7 +55,7 @@
     z-index: -1;
     bottom: -30px;
     right: -16px;
-    background: #D2EA8E;
+    background: #d2ea8e;
     height: 32px;
     width: 32px;
     border-radius: 32px;
@@ -62,42 +69,40 @@
   }
 }
 @media (min-width: 769px) {
-    .menubtn {
-      margin-top: 20px;
-      display: none;
-    }
-
+  .menubtn {
+    margin-top: 20px;
+    display: none;
   }
-  @media (max-width: 769px) {
-    .bigmenu {
-      margin-top: 10px;
-      display: none;
-    }
-    .hide{
-        display: none !important;
-    }
-    .menubtn {
-      color: #000;
-      /* background-color:#ECAB34; */
-      border: none;
-      box-shadow: none;
-    }
-    .main_menu {
-      width: 60%;
-      display: none;
-    }
-    .t-hide {
-      display: none;
-    }
-    .mobile_menu a {
-      font-weight: bold;
-    }
-    :where(.css-dev-only-do-not-override-dfjnss).ant-drawer
-      .ant-drawer-header-title {
-      flex-direction: row-reverse;
-    }
-    :where(.css-dev-only-do-not-override-dfjnss).ant-drawer .ant-drawer-close {
-      margin-inline-end: 0px;
-    }
- 
+}
+@media (max-width: 769px) {
+  .bigmenu {
+    margin-top: 10px;
+    display: none;
   }
+  .hide {
+    display: none !important;
+  }
+  .menubtn {
+    color: #000;
+    /* background-color:#ECAB34; */
+    border: none;
+    box-shadow: none;
+  }
+  .main_menu {
+    width: 60%;
+    display: none;
+  }
+  .t-hide {
+    display: none;
+  }
+  .mobile_menu a {
+    font-weight: bold;
+  }
+  :where(.css-dev-only-do-not-override-dfjnss).ant-drawer
+    .ant-drawer-header-title {
+    flex-direction: row-reverse;
+  }
+  :where(.css-dev-only-do-not-override-dfjnss).ant-drawer .ant-drawer-close {
+    margin-inline-end: 0px;
+  }
+}

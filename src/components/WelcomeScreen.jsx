@@ -62,7 +62,7 @@ const WelcomeScreen = () => {
             )}
 
             <h2 className="mt-[132px] text-center text-[#0E4957] font-fugi 2xl:text-[72px] xl:text-[65px] lg:text-[60px] md:text-[50px] text-[36px] font-normal leading-[120%] tracking-[-0.36px] px-4 2xl:w-[55%] sm:w-[60%] w-full   z-10">
-              Welcome to The World of Infinite Vacationsssssss
+              Welcome to The World of Infinite Vacations
             </h2>
             {isScrolled && (
               <div className="absolute bottom-[0px] sm:w-[412px] w-[300px] h-[200px] border-2 border-t-0 border-solid  border-[#0E4957]"></div>
